@@ -1,0 +1,6 @@
+/*!
+ * \defgroup block GNU Radio NI_MODINST_RF C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the NI_MODINST_RF GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
