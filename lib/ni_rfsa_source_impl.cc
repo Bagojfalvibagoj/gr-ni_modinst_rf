@@ -18,7 +18,7 @@ namespace gr {
     ni_rfsa_source::make(char* resourceName)
     {
       niRFSA_init(0,0,0,0);
-      return gnuradio::make_block_sptr<ni_rfsa_source_impl>(char* resourceName);
+      return gnuradio::make_block_sptr<ni_rfsa_source_impl>(resourceName);
     }
 
 
