@@ -43,3 +43,4 @@ add_custom_command(TARGET ni_modinst_rf_python POST_BUILD
 )
 
 install(TARGETS ni_modinst_rf_python DESTINATION ${GR_PYTHON_DIR}/gnuradio/ni_modinst_rf COMPONENT pythonapi)
+

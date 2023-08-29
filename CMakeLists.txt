@@ -18,6 +18,11 @@ cmake_minimum_required(VERSION 3.8)
 project(gr-ni_modinst_rf CXX C)
 enable_testing()
 
+#if(DEFINED ENV{CONDA_PREFIX})
+#    set(CONDA_PREFIX $ENV{CONDA_PREFIX})
+#    cmake_path(APPEND CONDA_PREFIX "Library" OUTPUT_VARIABLE CMAKE_INSTALL_PREFIX)
+#endif()
+
 # Install to PyBOMBS target prefix if defined
 if(DEFINED ENV{PYBOMBS_PREFIX})
     set(CMAKE_INSTALL_PREFIX $ENV{PYBOMBS_PREFIX} CACHE PATH "")
@@ -26,8 +31,13 @@ endif()
 
 # Make sure our local CMake Modules path comes first
 list(INSERT CMAKE_MODULE_PATH 0 ${PROJECT_SOURCE_DIR}/cmake/Modules)
+
+message(STATUS "DEBUG  gr python dir " ${GR_PYTHON_DIR})
+
 # Find gnuradio to get access to the cmake modules
 find_package(Gnuradio "3.10" REQUIRED)
+
+message(STATUS "DEBUG  gr python dir 2 " ${GR_PYTHON_DIR})
 
 # Set the version information here
 # cmake-format: off

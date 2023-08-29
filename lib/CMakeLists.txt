@@ -66,12 +66,11 @@ elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
 endif()
 
 
-
 cmake_path(APPEND IVI_ROOT_DIR "Include" OUTPUT_VARIABLE IVI_INCLUDE_DIR)
 cmake_path(APPEND VISA_LIB_DIR "niRFSA.lib" OUTPUT_VARIABLE NIRFSA_LIB_PATH)
 
 find_library (LEGACY_CRT_LIB_PATH "legacy_stdio_definitions" NO_CACHE)
-message(STATUS ${LEGACY_CRT_LIB_PATH})
+
 
 add_library(gnuradio-ni_modinst_rf SHARED ${ni_modinst_rf_sources})
 target_link_libraries(gnuradio-ni_modinst_rf gnuradio::gnuradio-runtime ${NIRFSA_LIB_PATH} ${LEGACY_CRT_LIB_PATH})

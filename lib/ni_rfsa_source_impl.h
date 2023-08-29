@@ -9,6 +9,7 @@
 #define INCLUDED_NI_MODINST_RF_NI_RFSA_SOURCE_IMPL_H
 
 #include <gnuradio/ni_modinst_rf/ni_rfsa_source.h>
+#include <niRFSA.h>
 
 namespace gr {
   namespace ni_modinst_rf {
@@ -16,10 +17,13 @@ namespace gr {
     class ni_rfsa_source_impl : public ni_rfsa_source
     {
      private:
-      // Nothing to declare in this block.
+      ViString viResourceName;
+      ViSession rfsaSession;
+      bool rfsaConfigured = false;
+      bool rfsaAcquiring = false;
 
      public:
-      ni_rfsa_source_impl(char* resourceName);
+      ni_rfsa_source_impl(std::string resourceName);
       ~ni_rfsa_source_impl();
 
       // Where all the action really happens
@@ -28,6 +32,10 @@ namespace gr {
               gr_vector_const_void_star &input_items,
               gr_vector_void_star &output_items
       );
+
+      bool start();
+      bool stop();
+
     };
 
   } // namespace ni_modinst_rf
