@@ -43,7 +43,7 @@ namespace gr {
       }
 
       status = niRFSA_ConfigureAcquisitionType(rfsaSession, NIRFSA_VAL_IQ);
-      status |= niRFSA_ConfigureIQRate(rfsaSession, "", 1e6);
+      status |= niRFSA_ConfigureIQRate(rfsaSession, "", 20e6);
       status |= niRFSA_ConfigureIQCarrierFrequency(rfsaSession, "", 2.4e9);
       status |= niRFSA_ConfigureNumberOfSamples(rfsaSession, "", VI_FALSE, 0);
       status |= niRFSA_ConfigureNumberOfRecords(rfsaSession, "", VI_TRUE, 1);
