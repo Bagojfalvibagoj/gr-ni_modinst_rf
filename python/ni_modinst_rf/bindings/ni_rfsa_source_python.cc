@@ -14,7 +14,7 @@
 /* BINDTOOL_GEN_AUTOMATIC(0)                                                       */
 /* BINDTOOL_USE_PYGCCXML(0)                                                        */
 /* BINDTOOL_HEADER_FILE(ni_rfsa_source.h)                                        */
-/* BINDTOOL_HEADER_FILE_HASH(1c622b84078e290d59d01f4f1c793695)                     */
+/* BINDTOOL_HEADER_FILE_HASH(75898c09178ffe6dbd10c4179e4f2993)                     */
 /***********************************************************************************/
 
 #include <pybind11/complex.h>
@@ -38,6 +38,10 @@ void bind_ni_rfsa_source(py::module& m)
 
         .def(py::init(&ni_rfsa_source::make),
            py::arg("resourceName"),
+           py::arg("centerFreq"),
+           py::arg("sampleRate"),
+           py::arg("refLevel"),
+           py::arg("bitfile"),
            D(ni_rfsa_source,make)
         )
         

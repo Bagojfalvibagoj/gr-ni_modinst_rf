@@ -17,13 +17,17 @@ namespace gr {
     class ni_rfsa_source_impl : public ni_rfsa_source
     {
      private:
-      ViString viResourceName;
+      char viResourceName[1024];
       ViSession rfsaSession;
+      char viErrorDescription[1024];
+      char viOptionString[1024];
       bool rfsaConfigured = false;
       bool rfsaAcquiring = false;
 
+      float wfmGainFromLastFetch = 0.0;
+
      public:
-      ni_rfsa_source_impl(std::string resourceName);
+      ni_rfsa_source_impl(std::string resourceName, float centerFreq, float sampleRate, float refLevel, std::string bitfile);
       ~ni_rfsa_source_impl();
 
       // Where all the action really happens

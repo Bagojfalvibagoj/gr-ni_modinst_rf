@@ -32,7 +32,7 @@ namespace gr {
        * class. ni_modinst_rf::ni_rfsa_source::make is the public interface for
        * creating new instances.
        */
-      static sptr make(std::string resourceName);
+      static sptr make(std::string resourceName, float centerFreq, float sampleRate, float refLevel, std::string bitfile);
     };
 
   } // namespace ni_modinst_rf

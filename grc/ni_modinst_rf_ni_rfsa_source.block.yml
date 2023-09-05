@@ -1,10 +1,11 @@
 id: ni_modinst_rf_ni_rfsa_source
 label: NI RFSA Source
+flags: throttle
 category: '[NI RF Modular Instruments]'
 
 templates:
   imports: from gnuradio import ni_modinst_rf
-  make: ni_modinst_rf.ni_rfsa_source(${resourceName})
+  make: ni_modinst_rf.ni_rfsa_source(${resourceName},${centerFreq},${sampleRate},${refLevel},${bitfile})
 
 #  Make one 'parameters' list entry for every parameter you want settable from the GUI.
 #     Keys include:
@@ -20,6 +21,25 @@ parameters:
 #- id: ...
 #  label: ...
 #  dtype: ...
+- id: centerFreq
+  label: Center Frequency [Hz]
+  dtype: float
+  default: 1e9
+
+- id: sampleRate
+  label: Sample Rate [IQ Samples/s]
+  dtype: float
+  default: 1e6
+
+- id: refLevel
+  label: Reference Level [dBm]
+  dtype: float
+  default: 0
+
+- id: bitfile
+  label: FPGA bitfile name
+  dtype: string
+  default: 
 
 #  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
 #  Keys include:
